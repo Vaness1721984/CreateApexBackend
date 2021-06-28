@@ -6,8 +6,24 @@
  * @param Map A map of Accounts with their Active__c field set to true if there is at leat 1 order and to false if there is no orders
  */
 
-public class UpdateActiveCheckbox {
-    public static void UpdateActiveCheckbox(List<Order> listOfOrders) {
+public class FunctionnalitiesOnOrdersClass {
+
+    public static void checkOrderItems(List<Order> listOfOrders) {
+        set<ID> ordset = new Set<ID>();
+        for(Order ord : listOfOrders) {
+            ordset.add(ord.Id);
+            Order oldOrder = (Order)Trigger.oldMap.get(ord.ID);
+            List<OrderItem> ResultList = [
+                SELECT OrderId, Order.Status FROM OrderItem WHERE OrderId IN :ordset
+                ];
+            if(ResultList.size()==0 && ord.Status == 'Active' && oldOrder.Status == 'Draft' )
+            {
+                ord.addError('An order must have at least one product.');
+            }
+        }
+    }
+
+    public static void updateActiveCheckbox(List<Order> listOfOrders) {
 map<id, Account> updateMap= new Map<id, Account>();
 set<ID> ordset = new Set<ID>();
 // List of Orders concerned by the trigger
