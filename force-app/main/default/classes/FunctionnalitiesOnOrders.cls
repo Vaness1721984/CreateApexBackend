@@ -2,8 +2,8 @@
  * @author Vanessa DREUX
  * @date 26/06/2021
  * @description 2 Features are available in this class :
- * 1/Display an error message if staus changes from 'Draft' to 'Active' and there is no Order Products linked to the Order
- * 2/Update Active__c checkbox field of Accounts if there is orders linked to the account or not
+ * 1/Display an error message if status changes from 'Draft' to 'Active' and if there is no Order Products linked to the Order
+ * 2/Update Active__c checkbox field of Accounts if there are orders linked to the account or not (true if orders and false if no order)
  */
 public class FunctionnalitiesOnOrders{
 	public static void checkOrderItems(List<Order> listOfOrders){

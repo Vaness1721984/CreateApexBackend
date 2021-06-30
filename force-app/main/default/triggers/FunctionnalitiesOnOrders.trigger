@@ -2,6 +2,7 @@
  * @author Vanessa DREUX
  * @date 26/06/2021
  * @description This class holds the trigger parameters to update Active__c Checkbox on Accounts
+ * and prevent status update to 'Active' on Order if there is no Order Item
  */
 trigger FunctionnalitiesOnOrders on Order(after insert, after delete, before update ){
 	if (Trigger.IsAfter &&Trigger.isInsert){
