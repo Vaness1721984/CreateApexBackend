@@ -3,7 +3,7 @@ public class FunctionnalitiesOnOrders_Tests{
 	@isTest
 	static void testCheckOrderItemsBeforeUpdate(){
 		// Retrieve data set from DataFactory class : 1 Account, 1 Contract and 1 Order
-		TestDataFactory.createTestRecordsForCheckOrderItemsBeforeUpdate(1, 1, 1);
+		TestDataFactory.createTestRecordsForCheckOrderItems(1, 1, 1);
 		Test.startTest();
 		List<Order> ords =[SELECT Id, Status
 		                   FROM Order];
@@ -21,7 +21,7 @@ public class FunctionnalitiesOnOrders_Tests{
 	@isTest
 	static void testUpdateActiveCheckboxAfterInsert(){
 		// Retrieve data set from DataFactory class : 1 Account, 1 Contract and 1 Order
-		TestDataFactory.createTestRecordsForUpdateActiveCheckboxAfterInsert(1, 1, 1);
+		TestDataFactory.createTestRecordsForUpdateActiveCheckbox(1, 1, 1);
 		Test.startTest();
 		List<Account> accts =[SELECT Id, Active__c
 		                      FROM Account];
@@ -33,7 +33,7 @@ public class FunctionnalitiesOnOrders_Tests{
 	@isTest
 	static void testUpdateActiveCheckboxAfterDelete(){
 		// Retrieve data set from DataFactory class : 1 Account, 1 Contract and 0 Order
-		TestDataFactory.createTestRecordsForUpdateActiveCheckboxAfterDelete(1, 1, 0);
+		TestDataFactory.createTestRecordsForUpdateActiveCheckbox(1, 1, 0);
 		Test.startTest();
 		List<Account> accts =[SELECT Id, Active__c
 		                      FROM Account];
