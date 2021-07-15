@@ -33,7 +33,7 @@ public class BatchCreateTask_Tests{
 	}
 
 	@isTest
-	static void testNoCreationOfTasksIfNoOrderOneEmailTask(){
+	static void testCreationOfTasksIfNoOrderOneEmailTask(){
 		// Retrieve data set from TestDataFactory class : 1 Account, 0 Contract, 0 Order and 1 Task(Email)
 		TestDataFactory.createTestRecordsForCreateTasksInBatchEmail(1, 0, 0, 1);
 		// Execute Batch
